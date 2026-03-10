@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eid Mubarak – A Celebration of Light</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- ===================== INTRO DOORS ===================== -->
+  <section id="intro" class="intro-section">
+    <canvas id="starsCanvas"></canvas>
+
+    <!-- Behind layer (z-index 1) -->
+    <div class="intro-behind" id="introBehind">
+      <div class="eid-title-glow">
+        <div class="arabic-text">عيد مبارك</div>
+        <h1 class="eid-main-title">Eid Mubarak</h1>
+        <p class="eid-subtitle">A Celebration of Faith, Joy & Togetherness</p>
+      </div>
+      <div class="sparkles-container" id="sparklesContainer"></div>
+    </div>
+
+    <!-- Door layer (z-index 2) -->
+    <div class="intro-content">
+      <div class="doors-container" id="doorsContainer">
+        <div class="door door-left" id="doorLeft">
+          <div class="door-inner">
+            <div class="door-pattern"></div>
+            <div class="door-arch"></div>
+            <div class="door-ornament">☽</div>
+            <div class="door-lines"></div>
+          </div>
+          <div class="door-handle left-handle"></div>
+        </div>
+        <div class="door door-right" id="doorRight">
+          <div class="door-inner">
+            <div class="door-pattern"></div>
+            <div class="door-arch"></div>
+            <div class="door-ornament">✦</div>
+            <div class="door-lines"></div>
+          </div>
+          <div class="door-handle right-handle"></div>
+        </div>
+        <div class="door-frame-top"></div>
+        <div class="door-frame-bottom"></div>
+      </div>
+
+      <button class="open-btn" id="openBtn">
+        <span class="btn-text">Open</span>
+        <span class="btn-icon">⟡</span>
+      </button>
+      <p class="intro-hint">Click to begin your journey</p>
+    </div>
+  </section>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="mainContent" class="main-content hidden">
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <span class="nav-moon">☽</span>
+        <span>Eid Mubarak</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#greeting">Greeting</a></li>
+        <li><a href="#mosque">Mosque</a></li>
+        <li><a href="#traditions">Traditions</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#celebration">Celebrate</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== SECTION 1: GREETING ===================== -->
+    <section id="greeting" class="section greeting-section">
+      <canvas class="section-canvas" id="greetingCanvas"></canvas>
+      <div class="lanterns-row">
+        <div class="lantern lantern-1"><div class="lantern-body"><div class="lantern-glow"></div></div><div class="lantern-string"></div></div>
+        <div class="lantern lantern-2"><div class="lantern-body"><div class="lantern-glow"></div></div><div class="lantern-string"></div></div>
+        <div class="lantern lantern-3"><div class="lantern-body"><div class="lantern-glow"></div></div><div class="lantern-string"></div></div>
+        <div class="lantern lantern-4"><div class="lantern-body"><div class="lantern-glow"></div></div><div class="lantern-string"></div></div>
+        <div class="lantern lantern-5"><div class="lantern-body"><div class="lantern-glow"></div></div><div class="lantern-string"></div></div>
+      </div>
+      <div class="greeting-content reveal-group">
+        <div class="flower-cluster" id="flowerCluster">
+          <div class="flower f1">🌸</div>
+          <div class="flower f2">🌺</div>
+          <div class="flower f3">✿</div>
+          <div class="flower f4">🌼</div>
+          <div class="flower f5">❀</div>
+          <div class="flower f6">🌸</div>
+        </div>
+        <div class="greeting-badge reveal-item">— Wishing You —</div>
+        <h2 class="greeting-title reveal-item">
+          <span class="gold-line">Eid Mubarak</span>
+        </h2>
+        <p class="greeting-text reveal-item">
+          May this beautiful occasion bring <em>peace</em>, <em>happiness</em>,<br/>
+          and <em>prosperity</em> to your heart and home.
+        </p>
+        <div class="greeting-divider reveal-item">
+          <span>✦</span><span>☽</span><span>✦</span>
+        </div>
+        <p class="greeting-quote reveal-item">
+          "Indeed, with hardship comes ease." — Quran 94:6
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: MOON & MOSQUE ===================== -->
+    <section id="mosque" class="section mosque-section">
+      <div class="parallax-sky" id="parallaxSky">
+        <div class="stars-layer" id="starsLayer"></div>
+
+        <!-- Moon -->
+        <div class="moon-container" id="moonContainer">
+          <div class="crescent-moon">
+            <div class="moon-outer"></div>
+            <div class="moon-inner"></div>
+            <div class="moon-glow"></div>
+            <div class="moon-halo"></div>
+          </div>
+        </div>
+
+        <!-- Text overlay -->
+        <div class="mosque-text">
+          <h2 class="mosque-title reveal-item">The Night of Celebration</h2>
+          <p class="mosque-subtitle reveal-item">A thousand stars witness the joy of Eid</p>
+        </div>
+
+        <!-- Mosque SVG — tall viewBox so it fills mobile screens -->
+        <div class="mosque-silhouette" id="mosqueSilhouette">
+          <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- ── Far background city ── -->
+            <rect x="0"   y="390" width="80"  height="130" fill="#0a0820"/>
+            <rect x="85"  y="370" width="60"  height="150" fill="#0a0820"/>
+            <rect x="150" y="400" width="50"  height="120" fill="#0a0820"/>
+            <rect x="390" y="395" width="55"  height="125" fill="#0a0820"/>
+            <rect x="450" y="368" width="65"  height="152" fill="#0a0820"/>
+            <rect x="520" y="405" width="80"  height="115" fill="#0a0820"/>
+
+            <!-- ── Side walls / extended base ── -->
+            <rect x="0"   y="420" width="600" height="100" fill="#0d0d28"/>
+
+            <!-- ── Left minaret ── -->
+            <rect x="88"  y="200" width="22" height="320" rx="3" fill="#100e2e"/>
+            <ellipse cx="99" cy="198" rx="16" ry="26" fill="#100e2e"/>
+            <rect x="93"  y="170" width="12" height="30"  fill="#100e2e"/>
+            <ellipse cx="99" cy="168" rx="9"  ry="8"  fill="#100e2e"/>
+            <rect x="97"  y="148" width="4"  height="22"  fill="#100e2e"/>
+            <!-- minaret tip -->
+            <polygon points="99,128 104,150 94,150" fill="#e8c87a"/>
+            <!-- minaret balcony -->
+            <rect x="84" y="196" width="30" height="5" rx="2" fill="#1e1a40"/>
+            <!-- minaret windows -->
+            <ellipse cx="99" cy="240" rx="5" ry="8" fill="#1a1840"/>
+            <ellipse cx="99" cy="290" rx="5" ry="8" fill="#1a1840"/>
+            <ellipse cx="99" cy="340" rx="5" ry="8" fill="#1a1840"/>
+
+            <!-- ── Right minaret ── -->
+            <rect x="490" y="200" width="22" height="320" rx="3" fill="#100e2e"/>
+            <ellipse cx="501" cy="198" rx="16" ry="26" fill="#100e2e"/>
+            <rect x="495" y="170" width="12" height="30"  fill="#100e2e"/>
+            <ellipse cx="501" cy="168" rx="9"  ry="8"  fill="#100e2e"/>
+            <rect x="499" y="148" width="4"  height="22"  fill="#100e2e"/>
+            <polygon points="501,128 506,150 496,150" fill="#e8c87a"/>
+            <rect x="486" y="196" width="30" height="5" rx="2" fill="#1e1a40"/>
+            <ellipse cx="501" cy="240" rx="5" ry="8" fill="#1a1840"/>
+            <ellipse cx="501" cy="290" rx="5" ry="8" fill="#1a1840"/>
+            <ellipse cx="501" cy="340" rx="5" ry="8" fill="#1a1840"/>
+
+            <!-- ── Side small domes ── -->
+            <ellipse cx="195" cy="310" rx="55" ry="48" fill="#100e2e"/>
+            <rect x="140" y="310" width="110" height="210" fill="#100e2e"/>
+            <rect x="138" y="310" width="4"   height="210" fill="#0d0d28"/>
+            <rect x="248" y="310" width="4"   height="210" fill="#0d0d28"/>
+            <!-- left dome crescent -->
+            <rect x="193" y="260" width="4" height="22" fill="#100e2e"/>
+            <text x="186" y="260" font-size="12" fill="#e8c87a" font-family="serif">☽</text>
+
+            <ellipse cx="405" cy="310" rx="55" ry="48" fill="#100e2e"/>
+            <rect x="350" y="310" width="110" height="210" fill="#100e2e"/>
+            <rect x="348" y="310" width="4"   height="210" fill="#0d0d28"/>
+            <rect x="458" y="310" width="4"   height="210" fill="#0d0d28"/>
+            <rect x="403" y="260" width="4" height="22" fill="#100e2e"/>
+            <text x="396" y="260" font-size="12" fill="#e8c87a" font-family="serif">☽</text>
+
+            <!-- ── Main dome ── -->
+            <ellipse cx="300" cy="230" rx="115" ry="105" fill="#120f30"/>
+            <rect x="185" y="230" width="230" height="290" fill="#120f30"/>
+            <!-- dome rim line -->
+            <path d="M185 230 Q300 210 415 230" stroke="#1e1a45" stroke-width="2" fill="none"/>
+            <!-- dome crescent pole -->
+            <rect x="298" y="122" width="4" height="30" fill="#120f30"/>
+            <text x="286" y="122" font-size="18" fill="#e8c87a" font-family="serif">☽</text>
+
+            <!-- ── Main arch window ── -->
+            <path d="M266 340 Q300 300 334 340 L334 520 L266 520 Z" fill="#1a1740"/>
+            <!-- arch highlight -->
+            <path d="M270 340 Q300 306 330 340" stroke="rgba(232,200,122,0.2)" stroke-width="1.5" fill="none"/>
+
+            <!-- ── Side arch windows ── -->
+            <path d="M155 370 Q175 350 195 370 L195 520 L155 520 Z" fill="#161440"/>
+            <path d="M405 370 Q425 350 445 370 L445 520 L405 520 Z" fill="#161440"/>
+
+            <!-- ── Decorative band across main building ── -->
+            <rect x="185" y="326" width="230" height="3" fill="rgba(232,200,122,0.18)"/>
+
+            <!-- ── Ground fill ── -->
+            <rect x="0" y="510" width="600" height="10" fill="#0e0b18"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 3: TRADITIONS ===================== -->
+    <section id="traditions" class="section traditions-section">
+      <div class="traditions-bg"></div>
+      <div class="section-header reveal-item">
+        <span class="section-tag">✦ Sacred Moments ✦</span>
+        <h2 class="section-title">Eid Traditions</h2>
+        <p class="section-desc">The pillars of our celebration</p>
+      </div>
+      <div class="cards-grid">
+        <div class="trad-card reveal-item" data-delay="0">
+          <div class="card-glow-ring"></div>
+          <div class="card-icon-wrap"><div class="card-icon">👨‍👩‍👧‍👦</div></div>
+          <h3>Family</h3>
+          <p>Reuniting with loved ones, sharing meals, and creating memories that last a lifetime.</p>
+          <div class="card-shimmer"></div>
+        </div>
+        <div class="trad-card reveal-item" data-delay="100">
+          <div class="card-glow-ring"></div>
+          <div class="card-icon-wrap"><div class="card-icon">💛</div></div>
+          <h3>Charity</h3>
+          <p>Giving Zakat al-Fitr, spreading generosity, and uplifting those in need.</p>
+          <div class="card-shimmer"></div>
+        </div>
+        <div class="trad-card reveal-item" data-delay="200">
+          <div class="card-glow-ring"></div>
+          <div class="card-icon-wrap"><div class="card-icon">🎊</div></div>
+          <h3>Celebration</h3>
+          <p>Wearing new clothes, exchanging gifts, and filling the air with joy and laughter.</p>
+          <div class="card-shimmer"></div>
+        </div>
+        <div class="trad-card reveal-item" data-delay="300">
+          <div class="card-glow-ring"></div>
+          <div class="card-icon-wrap"><div class="card-icon">🤲</div></div>
+          <h3>Gratitude</h3>
+          <p>Offering prayers of thanks, reflecting on blessings, and embracing spiritual renewal.</p>
+          <div class="card-shimmer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 4: GALLERY ===================== -->
+    <section id="gallery" class="section gallery-section">
+      <div class="section-header reveal-item">
+        <span class="section-tag">✦ Visual Journey ✦</span>
+        <h2 class="section-title">Eid Gallery</h2>
+      </div>
+      <div class="gallery-wrapper">
+        <div class="gallery-track" id="galleryTrack">
+          <div class="gallery-slide">
+            <div class="slide-inner" style="background: linear-gradient(135deg,#1a0a2e,#2d1b4e,#4a2c6e);">
+              <div class="slide-art">
+                <div class="slide-moon">☽</div>
+                <div class="slide-stars-mini">✦ ✧ ✦ ✧ ✦</div>
+                <div class="slide-label">The Blessed Night</div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="slide-inner" style="background: linear-gradient(135deg,#0a1a0a,#1a3a1a,#2a5a2a);">
+              <div class="slide-art">
+                <div class="slide-icon">🕌</div>
+                <div class="slide-stars-mini">✦ ✧ ✦</div>
+                <div class="slide-label">Morning Prayer</div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="slide-inner" style="background: linear-gradient(135deg,#1a0a00,#3a1a00,#6a3a00);">
+              <div class="slide-art">
+                <div class="slide-icon">🪔</div>
+                <div class="slide-stars-mini">✦ ✧ ✦ ✧ ✦</div>
+                <div class="slide-label">Lanterns of Hope</div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="slide-inner" style="background: linear-gradient(135deg,#1a0a1a,#3a0a3a,#6a1a6a);">
+              <div class="slide-art">
+                <div class="slide-icon">🌹</div>
+                <div class="slide-stars-mini">✦ ✧ ✦</div>
+                <div class="slide-label">Bloom of Eid</div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="slide-inner" style="background: linear-gradient(135deg,#001a1a,#003a3a,#006a6a);">
+              <div class="slide-art">
+                <div class="slide-icon">🎁</div>
+                <div class="slide-stars-mini">✦ ✧ ✦ ✧ ✦</div>
+                <div class="slide-label">Gifts & Eidi</div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="slide-inner" style="background: linear-gradient(135deg,#1a1a00,#3a3a00,#6a6a00);">
+              <div class="slide-art">
+                <div class="slide-icon">🍯</div>
+                <div class="slide-stars-mini">✦ ✧ ✦</div>
+                <div class="slide-label">Sweet Delights</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="gallery-btn prev-btn" id="prevBtn">‹</button>
+        <button class="gallery-btn next-btn" id="nextBtn">›</button>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 5: FIREWORKS ===================== -->
+    <section id="celebration" class="section fireworks-section">
+      <canvas id="fireworksCanvas"></canvas>
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="celebration-content reveal-group">
+        <div class="celebration-badge reveal-item">🎆 Eid Celebration 🎆</div>
+        <h2 class="celebration-title reveal-item">
+          Eid Mubarak<br/>
+          <span>to You and Your Family</span>
+        </h2>
+        <p class="celebration-text reveal-item">
+          May Allah bless you with joy, grant your prayers,<br/>
+          and fill your days with endless love and light.
+        </p>
+        <div class="celebration-arabic reveal-item">تقبل الله منا ومنكم</div>
+        <p class="celebration-arabic-trans reveal-item">May Allah accept from us and from you</p>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="footer-lanterns">
+        <div class="f-lantern fl-1"><div class="fl-body"></div><div class="fl-string"></div><div class="fl-light"></div></div>
+        <div class="f-lantern fl-2"><div class="fl-body"></div><div class="fl-string"></div><div class="fl-light"></div></div>
+        <div class="f-lantern fl-3"><div class="fl-body"></div><div class="fl-string"></div><div class="fl-light"></div></div>
+        <div class="f-lantern fl-4"><div class="fl-body"></div><div class="fl-string"></div><div class="fl-light"></div></div>
+        <div class="f-lantern fl-5"><div class="fl-body"></div><div class="fl-string"></div><div class="fl-light"></div></div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-logo">☽ Eid Mubarak ✦</div>
+        <p class="footer-msg">Crafted with love to celebrate this blessed occasion</p>
+        <div class="footer-divider">✦ ☽ ✦</div>
+        <p class="footer-year">1446 AH · 2025</p>
+      </div>
+      <button class="back-top-btn" id="backTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <span>↑</span>
+        <span class="btn-label">Back to Top</span>
+      </button>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
