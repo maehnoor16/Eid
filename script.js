@@ -337,7 +337,7 @@ function launchFireworks() {
   resize();
   window.addEventListener('resize', resize);
 
-  var COLORS = ['#e8c87a','#fde8d0','#e8a0a0','#f2c4c4','#c4aee8','#ddd0f8','#a0d4c4','#f5c9a0'];
+  var COLORS = ['#ffffff','#c8d8f0','#a8c4e8','#7aa0d4','#c8a040','#e8d080','#e0ecff','#6090c8'];
 
   function Particle(x, y, color) {
     this.x = x; this.y = y; this.color = color;
@@ -387,13 +387,13 @@ function launchFireworks() {
     this.trail.forEach(function(pt, i) {
       ctx.beginPath();
       ctx.arc(pt.x, pt.y, 2, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(255,220,100,'+(i/self.trail.length*0.8)+')';
+      ctx.fillStyle = 'rgba(200,220,255,'+(i/self.trail.length*0.8)+')';
       ctx.fill();
     });
     ctx.beginPath();
     ctx.arc(this.x, this.y, 3, 0, Math.PI*2);
-    ctx.fillStyle   = '#fff8dc';
-    ctx.shadowColor = '#ffd700';
+    ctx.fillStyle   = '#e0ecff';
+    ctx.shadowColor = '#a8c4e8';
     ctx.shadowBlur  = 10;
     ctx.fill();
     ctx.shadowBlur  = 0;
@@ -407,7 +407,7 @@ function launchFireworks() {
 
   var rockets = [], particles = [], lastLaunch = 0;
   function loop(t) {
-    ctx.fillStyle = 'rgba(4,4,15,0.22)';
+    ctx.fillStyle = 'rgba(11,29,58,0.22)';
     ctx.fillRect(0,0,W,H);
 
     if (t - lastLaunch > 600 + Math.random()*800) {
@@ -432,7 +432,7 @@ function launchFireworks() {
 function spawnConfetti() {
   var cont   = document.getElementById('confettiContainer');
   if (!cont) return;
-  var COLORS = ['#e8c87a','#fde8d0','#e8a0a0','#f2c4c4','#c4aee8','#ddd0f8','#a0d4c4','#f5c9a0'];
+  var COLORS = ['#ffffff','#c8d8f0','#a8c4e8','#7aa0d4','#c8a040','#e8d080','#0b1d3a','#1e4080'];
   for (var i = 0; i < 120; i++) {
     var el     = document.createElement('div');
     el.className = 'confetti-piece';
